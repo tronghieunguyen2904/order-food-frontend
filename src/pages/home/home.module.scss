@@ -1,0 +1,95 @@
+//------------Specialty-----------------
+.section-specialty {
+    height: 355px;
+    background: lightgoldenrodyellow;
+    border: 1px solid lightgoldenrodyellow;
+
+    .specialty-container {
+        margin: 30px 70px;
+        cursor: pointer;
+
+        .edit-font {
+            text-align: center;
+
+            .text-font {
+                padding-top: 8px;
+            }
+        }
+
+        .specialty-header {
+            padding-top: 2px;
+            text-align: center;
+
+            .edit-title {
+                font-weight: bold;
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+//reset slick slider css
+
+.slick-prev {
+    left: -13 !important;
+    z-index: 1000 !important;
+    height: 28px !important;
+    width: 30px !important;
+    background: #fff !important;
+    border: 2px solid #d7d7d7 !important;
+
+    &:hover {
+        background: #d7d7d7 !important;
+    }
+}
+
+.slick-prev::before,
+.slick-next::before {
+    font-family: FontAwesome !important;
+    color: black !important;
+
+}
+
+.slick-next {
+    right: 33 !important;
+    z-index: 1000 !important;
+    height: 28px !important;
+    width: 30px !important;
+    background: #fff !important;
+    border: 2px solid #d7d7d7 !important;
+
+    &:hover {
+        background: #d7d7d7 !important;
+    }
+}
+
+//-----------------About
+.section-about {
+
+    height: 400px;
+    background-color: rgb(253, 253, 185);
+
+    .section-about-content {
+        height: 500px !important;
+        display: flex;
+        width: 100%;
+        gap: 30px;
+
+        .content-left {
+            margin: 0 60px;
+
+        }
+
+        .content-right {
+            width: 40%;
+            text-align: justify;
+        }
+    }
+
+    .section-about-header {
+        margin: 0 50px;
+        padding: 0 10px;
+        font-size: 30px;
+        font-weight: 600px;
+    }
+}
