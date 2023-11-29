@@ -1,9 +1,9 @@
-import React from 'react';
+ 
 import './news.scss';
 
 function news() {
     return (
-        <div  className='container'>
+        <div  className='container-news'>
             <div className='page-news'>
                 <div className='second-page'>
                     <div className='over-page'>

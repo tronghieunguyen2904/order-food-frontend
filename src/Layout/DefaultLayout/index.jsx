@@ -7,7 +7,7 @@ function DefaultLayout({ children }) {
     <div>
       <Header />
       <div>
-        <div>{children}</div>
+        <div style={{width:'100%'}}>{children}</div>
       </div>
       <Footer />
     </div>
