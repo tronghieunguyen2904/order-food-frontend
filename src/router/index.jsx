@@ -1,5 +1,6 @@
 import admin from "../pages/admin/admin";
 import Cart from "../pages/cart";
+import Detail from "../pages/detail";
 import HomePage from "../pages/home";
 import Login from "../pages/login";
 import news from "../pages/restaurant/news";
@@ -14,6 +15,7 @@ const routes = [
     { path: '/restaurant', component: restaurant },
     { path: '/news', component: news },
     { path: '/admin', component: admin, Layout: admin },
+    {path: '/detail/:id' , component:Detail},
 ]
 
 export { routes };

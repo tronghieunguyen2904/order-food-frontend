@@ -3,7 +3,7 @@ import './news.scss';
 
 function news() {
     return (
-        <>
+        <div  className='container'>
             <div className='page-news'>
                 <div className='second-page'>
                     <div className='over-page'>
@@ -84,7 +84,7 @@ function news() {
                     <p>&copy; 2023 Foodat restaurant. Mang đến hương vị Việt.</p>
                 </footer-page> */}
             </div>
-        </>
+        </div>
     );
 }
 
