@@ -1,25 +1,35 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './signup.module.scss';
-import { Link } from 'react-router-dom';
+import { Link ,useNavigate} from 'react-router-dom';
 import Validation from './SignupValidation';
-import axios from 'axios';
+import { registerApi } from '../../Api';
 
 
 function Signup() {
     const [values, setValues] = useState({
-        name: '',
-        email: '',
+        gmail: '',
+        ten: '',
         password: ''
     })
-
+    console.log(values.gmail[0]);
+    const navigate = useNavigate();
     const [errors, setErrors] = useState({})
 
     const handleInput = (event) => {
         setValues(prev => ({ ...prev, [event.target.name]: [event.target.value] }))
     }
-
+    const handleRegister = async ()=>{
+        try {
+            const response = await registerApi(values.gmail[0], values.ten[0], values.password[0]);
+            navigate("/login");
+            console.log(response);
+          } catch (error) {
+            console.log(error);
+          }
+    }
     const handleSubmit = (event) => {
         event.preventDefault();
+        handleRegister();
         setErrors(Validation(values));
     }
     return (
@@ -30,14 +40,14 @@ function Signup() {
                     <form action='' onSubmit={handleSubmit}>
                         <div className='mb-3'>
                             <label htmlFor='name'><strong>Name</strong></label>
-                            <input type='text' placeholder='Enter name' name='name'
+                            <input type='text' placeholder='Enter name' name='ten'
                                 onChange={handleInput} className='from-control rounded-0' />
                             {errors.name && <span className='text-danger'>{errors.name}</span>}
 
                         </div>
                         <div className='mb-3'>
                             <label htmlFor='email'><strong>Email</strong></label>
-                            <input type='email' placeholder='Enter email' name='email'
+                            <input type='email' placeholder='Enter email' name='gmail'
                                 onChange={handleInput} className='from-control rounded-0' />
                             {errors.email && <span className='text-danger'>{errors.email}</span>}
 

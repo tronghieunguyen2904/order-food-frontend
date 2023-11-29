@@ -250,3 +250,13 @@
 
     }
 }
+.name-user-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin-left:20px;
+    p{
+        margin-left: 8px;
+    }
+}

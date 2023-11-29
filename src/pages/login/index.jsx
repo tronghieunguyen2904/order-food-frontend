@@ -1,22 +1,35 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate} from 'react-router-dom';
 import './Login.module.scss';
 import Validation from './LoginValidation';
+import { loginApi } from '../../Api';
 
 function Login() {
     const [values, setValues] = useState({
-        email: '',
+        gmail: '',
         password: ''
     })
-
+    const navigate = useNavigate();
     const [errors, setErrors] = useState({})
 
     const handleInput = (event) => {
         setValues(prev => ({ ...prev, [event.target.name]: [event.target.value] }))
     }
 
+    const handleLogin = async ()=>{
+        try {
+            const response = await loginApi(values.gmail[0], values.password[0]);
+            localStorage.setItem("name",response.user.ten);
+            navigate("/");
+            console.log(response);
+          } catch (error) {
+            console.log(error);
+          }
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
+        handleLogin();
         setErrors(Validation(values));
     }
 
@@ -27,7 +40,7 @@ function Login() {
                     <form action='' onSubmit={handleSubmit}>
                         <div className='mb-3'>
                             <label htmlFor='email'><strong>Email</strong></label>
-                            <input type='email' placeholder='Enter email' name='email'
+                            <input type='email' placeholder='Enter email' name='gmail'
                                 onChange={handleInput} className='from-control rounded-0' />
                             {errors.email && <span className='text-danger'>{errors.email}</span>}
                         </div>
