@@ -66,12 +66,10 @@ function ProductCart({ id, ten, gia, quantity1, tongTien }) {
                     <td><p>{ten}</p></td>
                     <td><p>{gia}</p></td>
                     <td><button className={cx("btn-qty-cart")} onClick={handleDecrease}>
-                      Giảm
                       <i className={cx("fas fa-minus")}></i>
                     </button>
                       <span>{quantity1}</span>
                       <button className={cx("btn-qty-cart")} onClick={handleIncrease}>
-                        Thêm
                         <i className={cx("fas fa-plus")}></i>
                       </button></td>
                     <td><p>{tongTien}</p></td>
@@ -79,35 +77,11 @@ function ProductCart({ id, ten, gia, quantity1, tongTien }) {
                       <button
                         className={cx("fas fa-times icon-delete-cart")}
                         onClick={handleDelete}
-                      >Xóa</button>
+                      ></button>
                     </span></td>
                   </tr>
                 </tbody>
               </table>
-            </div>
-            <div className={cx("right-form")}>
-              <form id="paymentForm" />
-              <label for="firstName">Tên:</label>
-              <input type="text" id="firstName" name="firstName" required />
-
-              <label for="lastName">Tên đệm:</label>
-              <input type="text" id="lastName" name="lastName" required />
-
-              <label for="email">Email:</label>
-              <input type="email" id="email" name="email" required />
-
-              <label for="phone">Số điện thoại:</label>
-              <input type="tel" id="phone" name="phone" required />
-
-              <label for="address">Địa chỉ:</label>
-              <input type="text" id="address" name="address" required />
-
-              <label for="note">Ghi chú:</label>
-              <textarea id="note" name="note" rows="4"></textarea>
-
-              <button type="button" onclick="submitForm()">Thanh toán</button>
-
-
             </div>
           </div>
         </div>

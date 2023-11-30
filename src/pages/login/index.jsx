@@ -20,6 +20,7 @@ function Login() {
         try {
             const response = await loginApi(values.gmail[0], values.password[0]);
             localStorage.setItem("name",response.user.ten);
+            localStorage.setItem("id",response.user.id);
             navigate("/");
             console.log(response);
           } catch (error) {

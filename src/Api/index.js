@@ -20,3 +20,34 @@ export const registerApi = async (gmail,ten,password)=>{
     })
     return res.data;
 }
+
+export const createOrderApi = async ({
+    hoten,
+    diachi,
+    sdt,
+    trangthai,
+    ngaydathang,
+    mathanhtoan,
+    mavanchuyen,
+    makhachhang,
+    details,
+  }) => {
+    try {
+      const res = await axios.post(`${BASE_API}/order/create`, {
+        hoten,
+        diachi,
+        sdt,
+        trangthai,
+        ngaydathang,
+        mathanhtoan,
+        mavanchuyen,
+        makhachhang,
+        details,
+      });
+      return res.data;
+    } catch (error) {
+      // Handle error, you might want to log or throw an exception
+      console.error("Error creating order:", error.message);
+      throw error;
+    }
+  };
