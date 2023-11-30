@@ -1,9 +1,9 @@
- 
+
 import './news.scss';
 
 function news() {
     return (
-        <div  className='container-news'>
+        <div className='container-news'>
             <div className='page-news'>
                 <div className='second-page'>
                     <div className='over-page'>
@@ -60,13 +60,17 @@ function news() {
 
                                     <h2>3.3. KFC (Kentucky Fried Chicken)</h2>
                                     <p>Đây cũng là một trong những chuỗi nhà hàng được yêu thích trên thị trường thức ăn nhanh hàng đầu trên thế giới. KFC nổi tiếng thế giới với công thức chế biến gà rán truyền thống Original Recipe. Ngoài ra, KFC còn phục vụ các khác như gà viên, hot wings, và các món ăn kèm như khoai tây chiên, bánh mì cùng các món khác làm nên thực đơn phong phú phù hợp với nhiều đối tượng người tiêu dùng.</p>
-                                    <img src="https://cafefcdn.com/203337114487263232/2022/11/4/photo-10-16675531713721722493194.jpg" alt="" />
+                                    <div className='edit-img'><img src="https://aeonmall-long-bien.com.vn/wp-content/uploads/2020/01/kfc3-750x468.jpg" alt="" /></div>
+
                                     <h2>3.4. Jollibee</h2>
                                     <p>Là chuỗi fast food đa quốc gia người Philippines chuyên về gà rán, burger và spaghetti. Nó nổi tiếng với hương vị độc đáo , được tẩm ướp nhiều gia vị tạo nên vị ngọt nhẹ, đậm đà, ít cay nên rất phù hợp với đối tượng khách hàng là trẻ nhỏ.</p>
 
                                     <h2>3.5. Texas Chicken</h2>
                                     <p>Chuỗi cửa hàng gà rán toàn cầu bắt nguồn từ Texas, Mỹ. Chuỗi này nổi tiếng với gà rán bọc tay, bánh mì quyện mật ong. Ngoài ra, còn có gà rán cay, tẩm ướp với 5 loại ớt cay, cùng phô mai tạo ra món gà với vị béo ngậy, thơm ngon khó cưỡng.</p>
-                                    <img src='https://media-cdn.tripadvisor.com/media/photo-s/17/32/3d/cd/texas-chicken.jpg' />
+                                    <div className='edit-img-texas'>
+                                        <div className='left'><img src='https://media-cdn.tripadvisor.com/media/photo-s/17/32/3d/cd/texas-chicken.jpg' /></div>
+                                        <div className='right'><img src="https://aeonmall-haiphong-lechan.com.vn/wp-content/uploads/2020/12/texas-chicken_2400-x-1500_1_resize.jpg" alt="" /></div>
+                                    </div>
 
                                     <h2>3.6. The Pizza Company</h2>
                                     <p>Đây là chuỗi cửa hàng pizza bắt nguồn từ Thái Lan và đã mở rộng sang các quốc gia khác ở châu Á. Nó cung cấp nhiều loại pizza, từ các loại topping truyền thống đến các pizza khác với  hương vị ngọt vừa phải, đậm đà cùng phần nước sốt cà chua ngọt thanh. </p>

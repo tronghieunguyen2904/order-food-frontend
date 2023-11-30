@@ -1,7 +1,9 @@
-.container-news{
+.container-news {
+    padding-top: 40px;
     background-color: lightgoldenrodyellow;
-    margin: 0!important;
+    margin: 0 !important;
 }
+
 .edit-link {
     i {
         font-size: 12px;
@@ -11,12 +13,32 @@
 
 .page-news {
     background: lightgoldenrodyellow;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
     max-width: 1200px; // Điều chỉnh kích thước tối đa của trang theo ý muốn
     padding: 20px; // Tạo khoảng trắng xung quanh nội dung
+}
 
-    .body {
-        margin: 0;
+.edit-img {
+    text-align: center;
+    height: 80%;
+}
+
+.edit-img-texas {
+    display: flex;
+
+    .left {
+        width: 50%;
+        height: 350px;
+        overflow: hidden;
+        padding-right: 30px;
+        /* Ẩn phần dư */
+    }
+
+    .right {
+        width: 50%;
+        height: 350px;
+
     }
 }
 

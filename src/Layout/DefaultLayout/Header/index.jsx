@@ -13,7 +13,7 @@ function Header() {
   const cartArr = useSelector((state) => state.cartArr);
   const navigate = useNavigate();
 
-  const handleLogout = ()=>{
+  const handleLogout = () => {
     localStorage.removeItem("name");
     navigate('/')
   }
@@ -88,9 +88,10 @@ function Header() {
               </a>
             </div>
             {name ? (
-              <div className={cx("name-user-container")}>
-                <p>{name}!</p>
-                <p onClick={handleLogout}>Logout</p>
+              <div className={cx("bnt-sign-up")}>
+                <div className={cx("btn-cart")}><i class="fas fa-user-check" title={name}></i></div>
+                {/* <p>{name}!</p> */}
+                <div className={cx("btn-cart")}><p onClick={handleLogout}><i class="fas fa-sign-out-alt" title="Đăng xuất"></i></p></div>
               </div>
             ) : (
               <div className={cx("btn-cart")}>
@@ -102,7 +103,7 @@ function Header() {
           </div>
         </div>
       </div>
-      <div className={cx("home-header-banner")}>
+      {/* <div className={cx("home-header-banner")}>
         <div className={cx("title1")}>Bùng lên hương vị</div>
         <div className={cx("title2")}>
           <p>
@@ -118,7 +119,7 @@ function Header() {
             <a href="#menu">Đặt món ngay</a>
           </button>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

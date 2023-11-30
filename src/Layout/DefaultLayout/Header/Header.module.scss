@@ -116,7 +116,7 @@
         }
 
         .right-content {
-            width: 28%;
+            width: 35%;
             display: flex;
             justify-content: space-around;
             align-items: center;
@@ -191,72 +191,20 @@
                     color: #ff8243;
                 }
             }
-        }
-    }
-}
 
-.home-header-banner {
-    background: url('src/assets/header-background.png');
-    height: 530px; //chinh lai 545px
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+            .bnt-sign-up {
+                display: flex;
 
-    .title1 {
-        text-align: right;
-        font-weight: 700;
-        font-size: 80px;
-        padding-top: 85px;
-        padding-left: 500px;
-        margin-left: 53 0px;
-        color: white;
-    }
+                p {
+                    padding-top: 15px;
+                }
 
-    .title2 {
-        display: flex;
-        color: white;
-        width: 620px;
-        margin-left: 500px;
-        text-align: justify;
-    }
-
-    .search {}
-
-    .options {
-        // width: 10px;
-        // height: 60px;
-
-        button {
-            a {
-                color: black;
-                text-decoration: none; // Loại bỏ gạch chân
-            }
-
-            color: white;
-            font-size: 40px;
-            border-radius: 22px;
-            background: lightgoldenrodyellow;
-            margin-left: 210px;
-            font-weight: 500;
-            padding: 10px 20px;
-            border: none;
-
-            &:hover {
-                background: rgb(255, 191, 0);
-                // background: rgb(91, 91, 90);
+                i {
+                    &:hover {
+                        color: #ff8243;
+                    }
+                }
             }
         }
-
-    }
-}
-.name-user-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    margin-left:20px;
-    p{
-        margin-left: 8px;
     }
 }
