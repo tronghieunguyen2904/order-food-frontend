@@ -7,6 +7,7 @@ import news from "../pages/restaurant/news";
 import restaurant from "../pages/restaurant/restaurant";
 import Signup from "../pages/signup/signup";
 import user from "../pages/user/user";
+import UserOrder from "../pages/user/userOrder";
 
 
 const routes = [
@@ -19,6 +20,7 @@ const routes = [
     { path: '/admin', component: admin, Layout: admin },
     { path: '/detail/:id', component: Detail },
     { path: '/user', component: user },
+    { path: '/user/order', component: UserOrder },
 ]
 
 export { routes };

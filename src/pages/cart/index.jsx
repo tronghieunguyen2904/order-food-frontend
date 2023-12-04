@@ -22,7 +22,12 @@ function Cart() {
     mahoadon:"",
     masanpham: item.id
   }))
-  console.log(cartList);
+  const totalAmount = detailOrder.reduce((total, item) => {
+    // Convert 'tong' to a number and add it to the total
+    return total + parseFloat(item.tong);
+}, 0);
+
+console.log(totalAmount);
   const [order,setOrder] = useState({
     hoten: '',
     diachi: '',
@@ -32,9 +37,10 @@ function Cart() {
     mathanhtoan: 1,
     mavanchuyen: 1,
     makhachhang: idUser,
+    tongtien:totalAmount,
     details: detailOrder,
   })
-  console.log(order.details);
+  console.log(order.tongtien);
   useEffect(() => {
     // Optionally, you can update the order details when cartList changes
     setOrder((prevOrder) => ({ ...prevOrder, details: detailOrder }));

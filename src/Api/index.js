@@ -32,6 +32,7 @@ export const createOrderApi = async ({
   mathanhtoan,
   mavanchuyen,
   makhachhang,
+  tongtien,
   details,
 }) => {
   try {
@@ -44,6 +45,7 @@ export const createOrderApi = async ({
       mathanhtoan,
       mavanchuyen,
       makhachhang,
+      tongtien,
       details,
     });
     return res.data;
@@ -53,3 +55,8 @@ export const createOrderApi = async ({
     throw error;
   }
 };
+
+export const userOrderApi = async (id) => {
+  const res = await axios.get(`${BASE_API}/user/order/${id}`);
+  return res.data.data;
+}
