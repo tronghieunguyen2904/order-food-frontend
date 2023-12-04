@@ -14,8 +14,14 @@ function Header() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem("name");
-    navigate('/')
+    const confirmation = window.confirm("Bạn có chắc chắn muốn đăng xuất?");
+    if (confirmation) {
+      localStorage.removeItem("name");
+      navigate('/')
+    }
+  }
+  const handleUser = () => {
+    navigate('/user')
   }
   const totalQuantity = cartArr.reduce((total, product) => total + product.quantity, 0);
   return (
@@ -35,7 +41,7 @@ function Header() {
             </div>
             <div className={cx("child-content")}>
               <div>
-                <b>Thực đơn</b>
+                <b><a href="#menu">Thực đơn</a></b>
               </div>
             </div>
             <div className={cx("dropdown")}>
@@ -51,15 +57,11 @@ function Header() {
                 <a href="/restaurant" target="_blank">
                   Thông tin
                 </a>
-                {/* <a href="">Kinh nghiệm</a> */}
               </div>
             </div>
-            {/* <div className={cx('child-content')}>
-                            <div><b>Nhà hàng</b></div>
-                        </div> */}
             <div className={cx("child-content")}>
               <div>
-                <b>Đầu bếp</b>
+                <b><a href="#chef">Đầu bếp</a></b>
               </div>
             </div>
             <div className={cx("child-content")}>
@@ -89,9 +91,10 @@ function Header() {
             </div>
             {name ? (
               <div className={cx("bnt-sign-up")}>
-                <div className={cx("btn-cart")}><i class="fas fa-user-check" title={name}></i></div>
+                <div className={cx("btn-cart")}><i onClick={handleUser} class="fas fa-user-check" title={name}></i></div>
                 {/* <p>{name}!</p> */}
                 <div className={cx("btn-cart")}><p onClick={handleLogout}><i class="fas fa-sign-out-alt" title="Đăng xuất"></i></p></div>
+
               </div>
             ) : (
               <div className={cx("btn-cart")}>
@@ -103,23 +106,6 @@ function Header() {
           </div>
         </div>
       </div>
-      {/* <div className={cx("home-header-banner")}>
-        <div className={cx("title1")}>Bùng lên hương vị</div>
-        <div className={cx("title2")}>
-          <p>
-            Chào mừng bạn đến với nhà hàng của chúng tôi! Cùng trải nghiệm những
-            món ăn ngon đặc trưng gà rán giòn tan, mì Ý đậm đà, pizza hấp dẫn và
-            vô vàn món ăn khác. Chúng tôi tự hào mang đến cho bạn những hương vị
-            tinh tế và đa dạng. Đặt món ngay để tận hưởng những bữa ăn thú vị!!
-          </p>
-        </div>
-        <div className={cx("search")}></div>
-        <div className={cx("options")}>
-          <button>
-            <a href="#menu">Đặt món ngay</a>
-          </button>
-        </div>
-      </div> */}
     </>
   );
 }

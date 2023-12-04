@@ -11,7 +11,7 @@
         width: 100%;
         display: flex;
         padding: 0 20px;
-        background: lightgoldenrodyellow;
+        background: white;
 
         .left-content {
             width: 20%;
@@ -48,7 +48,7 @@
                 //color: lightgoldenrodyellow;
 
                 button {
-                    background-color: lightgoldenrodyellow;
+                    background-color: white;
                     color: black;
                     padding: 5px 0;
                     border: none;
@@ -63,7 +63,7 @@
                     border-radius: 5px;
                     display: none;
                     position: absolute;
-                    background-color: hsl(0, 0%, 95%);
+                    background-color: white;
                     min-width: 115px;
                     box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.8);
                     z-index: 1; // Để menu xuất hiện trên các phần tử khác
@@ -74,7 +74,7 @@
                 }
 
                 &:hover button {
-                    background-color: lightgoldenrodyellow;
+                    background-color: white;
                 }
 
                 a {
@@ -96,6 +96,11 @@
             .child-content {
                 a {
                     text-decoration: none; // Bỏ gạch chân cho nội dung in đậm
+                    color: black;
+
+                    &:hover {
+                        color: #ff8243;
+                    }
 
                 }
 
@@ -137,7 +142,7 @@
                         -webkit-appearance: none;
                         border-radius: 10px;
                         border: none;
-                        background: lightgoldenrodyellow;
+                        background: white;
                         box-shadow: inset 6px 6px 8px #dadada, inset -6px -6px 8px #ffffff;
                     }
 

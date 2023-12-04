@@ -10,7 +10,7 @@ function Specialty() {
             <div className={cx('section-specialty')}>
                 <div className={cx('specialty-container')}>
                     <div className={cx('specialty-header')}>
-                        <div className={cx('edit-title')}>Món Ngon Nổi Bật</div>
+                        <div className={cx('edit-title')}>Món Ngon Khuyến Mãi</div>
                         <span>-------------------------------------</span>
                     </div>
                     {/* <Slider {...settings}>

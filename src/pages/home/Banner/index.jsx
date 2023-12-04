@@ -9,13 +9,15 @@ function Banner() {
     return (
         <>
             <div className={cx("home-header-banner")}>
-                <div className={cx("title1")}>Bùng lên hương vị</div>
+                <div className={cx("title1")}>
+                    <div className={cx("titletop")}>FOODAT</div>
+                    <div className={cx("titledown")}>RESTAURANT</div>
+                </div>
                 <div className={cx("title2")}>
                     <p>
                         Chào mừng bạn đến với nhà hàng của chúng tôi! Cùng trải nghiệm những
                         món ăn ngon đặc trưng gà rán giòn tan, mì Ý đậm đà, pizza hấp dẫn và
-                        vô vàn món ăn khác. Chúng tôi tự hào mang đến cho bạn những hương vị
-                        tinh tế và đa dạng. Đặt món ngay để tận hưởng những bữa ăn thú vị!!
+                        vô vàn món ăn khác. Đặt món ngay để tận hưởng những bữa ăn thú vị!!
                     </p>
                 </div>
                 <div className={cx("search")}></div>

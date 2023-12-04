@@ -4,19 +4,19 @@ function Validation(values) {
     const password_pattern = /^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/
 
     if (values.email === "") {
-        error.email = "Khong de trong email"
+        error.email = "Email không được để trống"
     }
     else if (!email_pattern.test(values.email)) {
-        error.email = "Email khong ton tai"
+        error.email = "Email không tồn tại"
     } else {
         error.email = ""
     }
 
     if (values.password === "") {
-        error.password = "Khong de trong password"
+        error.password = "Nhập password"
     }
     else if (!password_pattern.test(values.password)) {
-        error.password = "Password khong dung"
+        error.password = "Password sai"
     } else {
         error.password = ""
     }

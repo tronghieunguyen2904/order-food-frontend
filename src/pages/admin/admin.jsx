@@ -1,9 +1,10 @@
 import React from 'react';
 import './admin.scss';
 
+
 function admin() {
     return (
-        <div>
+        <>
             {/* <!-- SIDEBAR --> */}
             <section id="sidebar">
                 <a href="#" class="brand">
@@ -57,11 +58,11 @@ function admin() {
                     </li>
                 </ul>
             </section>
-            {/* <!-- SIDEBAR --> */}
+            {/* // <!-- SIDEBAR --> */}
 
 
 
-            {/* <!-- CONTENT --> */}
+            {/* // <!-- CONTENT --> */}
             <section id="content">
                 {/* <!-- NAVBAR --> */}
                 <nav>
@@ -80,7 +81,7 @@ function admin() {
                         <span class="num">8</span>
                     </a>
                     <a href="#" class="profile">
-                        <img src="assets/people.png" />
+                        {/* <img src="img/people.png"> */}
                     </a>
                 </nav>
                 {/* <!-- NAVBAR --> */}
@@ -149,7 +150,7 @@ function admin() {
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <img src="assets/people.png" />
+                                            {/* <img src="img/people.png"> */}
                                             <p>John Doe</p>
                                         </td>
                                         <td>01-10-2021</td>
@@ -157,7 +158,7 @@ function admin() {
                                     </tr>
                                     <tr>
                                         <td>
-                                            <img src="assets/people.png" />
+                                            {/* <img src="img/people.png"> */}
                                             <p>John Doe</p>
                                         </td>
                                         <td>01-10-2021</td>
@@ -165,7 +166,7 @@ function admin() {
                                     </tr>
                                     <tr>
                                         <td>
-                                            <img src="assets/people.png" />
+                                            {/* <img src="img/people.png"> */}
                                             <p>John Doe</p>
                                         </td>
                                         <td>01-10-2021</td>
@@ -173,7 +174,7 @@ function admin() {
                                     </tr>
                                     <tr>
                                         <td>
-                                            <img src="assets/people.png" />
+                                            {/* <img src="img/people.png"> */}
                                             <p>John Doe</p>
                                         </td>
                                         <td>01-10-2021</td>
@@ -181,7 +182,7 @@ function admin() {
                                     </tr>
                                     <tr>
                                         <td>
-                                            <img src="assets/people.png" />
+                                            {/* <img src="img/people.png"> */}
                                             <p>John Doe</p>
                                         </td>
                                         <td>01-10-2021</td>
@@ -223,8 +224,8 @@ function admin() {
                 </main>
                 {/* <!-- MAIN --> */}
             </section>
-            {/* <!-- CONTENT --> */}
-        </div>
+            {/* CONTENT */}
+        </>
     );
 }
 

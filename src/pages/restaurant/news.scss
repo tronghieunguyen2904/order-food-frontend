@@ -1,6 +1,6 @@
 .container-news {
     padding-top: 40px;
-    background-color: lightgoldenrodyellow;
+    background-color: white;
     margin: 0 !important;
 }
 
@@ -12,7 +12,7 @@
 }
 
 .page-news {
-    background: lightgoldenrodyellow;
+    background: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
     max-width: 1200px; // Điều chỉnh kích thước tối đa của trang theo ý muốn
@@ -43,12 +43,13 @@
 }
 
 .second-page {
-    background-color: lightgoldenrodyellow; // Màu nền cho phần second-page
+    background-color: white; // Màu nền cho phần second-page
     padding: 20px;
 }
 
 .over-page {
-    background-color: rgb(249, 249, 226); // Màu nền cho phần over-page
+    background-color: white;
+    // background-color: rgb(249, 249, 226); // Màu nền cho phần over-page
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // Hiệu ứng bóng đổ
     padding: 20px;
     border-radius: 5px;

@@ -1,5 +1,5 @@
 .home-header-banner {
-    background: url('src/assets/header-background.png');
+    background: url('src/assets/bugerbanner.jpg');
     height: 564px; //chinh lai 545px
     background-size: cover;
     display: flex;
@@ -10,17 +10,26 @@
         text-align: right;
         font-weight: 700;
         font-size: 80px;
-        padding-top: 125px;
-        padding-left: 500px;
-        margin-left: 53 0px;
-        color: white;
+        padding-top: 95px;
+        display: block;
+        padding-left: 610px;
+        //margin-left: 53 0px;
+        color: rgb(250, 175, 36);
+
+        .titletop {
+            padding-top: 0;
+        }
+
+        .titledown {
+            padding-top: 0;
+        }
     }
 
     .title2 {
         display: flex;
         color: white;
-        width: 620px;
-        margin-left: 500px;
+        width: 520px;
+        margin-left: 610px;
         text-align: justify;
     }
 
@@ -37,16 +46,20 @@
             }
 
             color: white;
-            font-size: 40px;
+            font-size: 35px;
             border-radius: 22px;
-            background: lightgoldenrodyellow;
-            margin-left: 210px;
+            background: white;
+            box-shadow: inset 10px 10px 12px #bcbaba,
+            inset -6px -6px 7px #ffffff;
+            margin-left: 350px;
             font-weight: 500;
             padding: 10px 20px;
             border: none;
 
             &:hover {
-                background: rgb(255, 191, 0);
+                background: rgb(253, 195, 21);
+                box-shadow: none;
+                transform: scale(1.03);
                 // background: rgb(91, 91, 90);
             }
         }

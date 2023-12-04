@@ -2,7 +2,7 @@
 .repeat-img {
     background-size: contain;
     background-repeat: repeat;
-    background: lightgoldenrodyellow;
+    background: white;
 
 }
 
@@ -14,7 +14,8 @@
     padding: 10px;
     display: inline-block;
     border-radius: 60px;
-    background: rgb(255, 198, 140);
+    background: white;
+    box-shadow: 28px 28px 45px #b7b6b6;
     position: relative;
     z-index: 2;
 }
@@ -31,11 +32,20 @@
     transition: 0.3s;
     justify-content: center;
     align-items: center;
+
+    &:hover {
+        color: #ff8243;
+    }
 }
 
 .edit-menutt {
     padding-top: 10px;
     text-decoration: underline;
+
+    h2 {
+        z-index: 100;
+        box-shadow: 28px 28px 45px #b7b6b6, -28px -28px 45px #ffffff;
+    }
 
 }
 
@@ -53,29 +63,54 @@
     top: 1px;
 }
 
-.menu-tab ul .filter-active {
-    color: #ffae00;
-    background: linear-gradient(145deg, #e3a92b, #ffc933);
-}
+// .menu-tab ul .filter-active {
+//     color: #ffae00;
+//     background: linear-gradient(145deg, #e3a92b, #ffc933);
+// }
 
 .menu-list-row .bydefault_show .dish-box-wp {
     display: inline-block !important;
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: space-between;
 }
 
 .dish-box-wp {
     display: none;
+    // flex: 0 1 calc(25% - 20px);
+    // /* Điều chỉnh chiều rộng ở đây (25% cho 4 sản phẩm trên 1 hàng) */
+    // margin: 0 10px 20px;
+    // /* Điều chỉnh margin cho khoảng cách giữa các sản phẩm */
 }
 
 .dish-box {
     border-radius: 30px;
-    background: rgb(255, 198, 140);
-    //box-shadow: 28px 28px 45px #f8e8a2, -28px -28px 45px #f9e68d;
+    background: white;
+    box-shadow: 28px 28px 45px #b7b6b6, -28px -28px 45px #ffffff;
     display: flow-root;
-    padding: 0 30px 10px;
+    padding: 0 10px 10px;
     padding-top: 0;
     margin: 20px 0 30px;
     transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+
+    // border-radius: 30px;
+    // background: white;
+    // box-shadow: 28px 28px 45px #b7b6b6, -28px -28px 45px #ffffff;
+    // display: flow-root;
+    // padding: 0 15px 10px;
+    // /* Điều chỉnh padding */
+    // margin: 20px 0 30px;
+    // transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+    // width: 100%;
+    // /* Đảm bảo chiều rộng đầy đủ trong container flex */
 }
+
+// @media (max-width: 767px) {
+//     .dish-box-wp {
+//         flex: 0 1 calc(50% - 20px);
+//         /* Điều chỉnh cho màn hình nhỏ hơn (2 sản phẩm trên 1 hàng) */
+//     }
+// }
 
 .dish-box:hover {
     transform: scale(1.03);
@@ -87,9 +122,10 @@
 }
 
 .dist-img img {
-    //box-shadow: 28px 28px 45px #d4d4d4, -28px -28px 45px #ffffff;
+    box-shadow: 28px 28px 45px #d4d4d4, -28px -28px 45px #ffffff;
     border-radius: 50%;
     overflow: hidden;
+    width: 200px;
 }
 
 .dish-rating {

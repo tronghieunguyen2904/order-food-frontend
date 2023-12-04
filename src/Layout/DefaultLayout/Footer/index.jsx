@@ -46,8 +46,8 @@ function Footer() {
                                     <ul className={cx("column-2")}>
                                         <li><i className="fas fa-chevron-right"></i><a href="/">  Trang chủ</a></li>
                                         <li><i className={cx("fas fa-chevron-right")}></i><a href="#menu">  Thực đơn</a></li>
-                                        <li><i className={cx("fas fa-chevron-right")}></i><a href="#about">  Nhà hàng</a></li>
-                                        <li><i className={cx("fas fa-chevron-right")}></i><a href="#gallery">  Đầu bếp</a></li>
+                                        <li><i className={cx("fas fa-chevron-right")}></i><a href="/news" target="_blank">  Nhà hàng</a></li>
+                                        <li><i className={cx("fas fa-chevron-right")}></i><a href="#chef">  Đầu bếp</a></li>
                                         <li><i className={cx("fas fa-chevron-right")}></i><a href="#blog">  Đặt bàn</a></li>
                                     </ul>
                                 </div>

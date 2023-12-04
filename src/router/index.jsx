@@ -6,7 +6,8 @@ import Login from "../pages/login";
 import news from "../pages/restaurant/news";
 import restaurant from "../pages/restaurant/restaurant";
 import Signup from "../pages/signup/signup";
-import test from "../pages/test/test";
+import user from "../pages/user/user";
+
 
 const routes = [
     { path: '/', component: HomePage },
@@ -17,7 +18,7 @@ const routes = [
     { path: '/news', component: news },
     { path: '/admin', component: admin, Layout: admin },
     { path: '/detail/:id', component: Detail },
-    { path: '/test', component: test },
+    { path: '/user', component: user },
 ]
 
 export { routes };
