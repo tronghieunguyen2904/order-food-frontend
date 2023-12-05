@@ -49,83 +49,52 @@ function ProductCart({ id, ten, gia, quantity1, tongTien }) {
         <div className={cx("second-container")}>
           <div className={cx("cv-form")}>
             <div className={cx("left-form")}>
-              <table class={cx("table table-striped")}>
-                <thead>
-                  <tr>
-                    <th scope="col"></th>
-                    <th scope="col">Tên món</th>
-                    <th scope="col">Giá</th>
-                    <th scope="col">Số Lượng</th>
-                    <th scope="col">Thành tiền</th>
-                    <th scope="col">Thao tác</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">{id}</th>
-                    <td><p>{ten}</p></td>
-                    <td><p>{gia}</p></td>
-                    <td><button className={cx("btn-qty-cart")} onClick={handleDecrease}>
-                      <i className={cx("fas fa-minus")}></i>
-                    </button>
-                      <span>{quantity1}</span>
-                      <button className={cx("btn-qty-cart")} onClick={handleIncrease}>
-                        <i className={cx("fas fa-plus")}></i>
-                      </button></td>
-                    <td><p>{tongTien}</p></td>
-                    <td><span>
-                      <button
-                        className={cx("fas fa-times icon-delete-cart")}
-                        onClick={handleDelete}
-                      ></button>
-                    </span></td>
-                  </tr>
-                </tbody>
-              </table>
+              <div className={cx("title-left-sp")}>
+                <h4>Chi tiết giỏ hàng</h4>
+                <span>Tổng tiền: {tongTien}vnd</span>
+              </div>
+              <div className={cx("cv-table")}>
+                <table class={cx("table table-striped")}>
+                  <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col">Tên món</th>
+                      <th scope="col">Giá</th>
+                      <th scope="col">Số Lượng</th>
+                      <th scope="col">Thành tiền</th>
+                      <th scope="col">Thao tác</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">{id}</th>
+                      <td><p>{ten}</p></td>
+                      <td><p>{gia}</p></td>
+                      <td>
+                        <button onClick={handleDecrease}>
+                          <i className={cx("fas fa-minus")}></i>
+                        </button>
+                        <span>{quantity1}</span>
+                        <button className={cx("btn-qty-cart")} onClick={handleIncrease}>
+                          <i className={cx("fas fa-plus")}></i>
+                        </button>
+                      </td>
+
+                      <td><p>{tongTien}</p></td>
+
+                      <td><span>
+                        <button onClick={handleDelete}>
+                          <i class="fas fa-trash-alt"></i>
+                        </button></span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* <tr>
-        <td className={cx("product-cell")}>
-          <div className={cx("name-product-cart")}>
-            <p>{ten}</p>
-          </div>
-        </td>
-        <td>
-          <span className={cx("color-cart")} data-label-id="0"></span>
-        </td>
-        <td className={cx("cart-cell")}>
-          <p>{gia}</p>
-        </td>
-        <td className={cx("cart-cell")}>
-          <div className={cx("input-container")}>
-            <div className={cx("input-sub-container")}>
-              <button className={cx("btn-qty-cart")} onClick={handleDecrease}>
-                Giảm
-                <i className={cx("fas fa-minus")}></i>
-              </button>
-              <span>{quantity1}</span>
-              <button className={cx("btn-qty-cart")} onClick={handleIncrease}>
-                Thêm
-                <i className={cx("fas fa-plus")}></i>
-              </button>
-            </div>
-          </div>
-        </td>
-        <td className={cx("cart-cell")}>
-          <p>{tongTien}</p>
-        </td>
-        <td className={cx("cart-cell")}>
-          <span>
-            <button
-              className={cx("fas fa-times icon-delete-cart")}
-              onClick={handleDelete}
-            >Xóa</button>
-          </span>
-        </td>
-      </tr> */}
     </>
   );
 }

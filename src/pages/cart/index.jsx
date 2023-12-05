@@ -18,17 +18,17 @@ function Cart() {
     soluong: item.quantity,
     gia: item.dongia.replace(',', ''),
     tong: (item.quantity * parseFloat(item.dongia.replace(',', ''))).toString(),
-    ghichu: item.ten,
-    mahoadon:"",
+    ghichu: item.ghichu,
+    mahoadon: "",
     masanpham: item.id
   }))
   const totalAmount = detailOrder.reduce((total, item) => {
     // Convert 'tong' to a number and add it to the total
     return total + parseFloat(item.tong);
-}, 0);
+  }, 0);
 
-console.log(totalAmount);
-  const [order,setOrder] = useState({
+  console.log(totalAmount);
+  const [order, setOrder] = useState({
     hoten: '',
     diachi: '',
     sdt: '',
@@ -37,8 +37,9 @@ console.log(totalAmount);
     mathanhtoan: 1,
     mavanchuyen: 1,
     makhachhang: idUser,
-    tongtien:totalAmount,
+    tongtien: totalAmount,
     details: detailOrder,
+    ghichu: '',
   })
   console.log(order.tongtien);
   useEffect(() => {
@@ -87,24 +88,52 @@ console.log(totalAmount);
                 gia={dongia}
                 quantity1={product.quantity}
                 tongTien={tongTien}
+                ghichu={product.ghichu}
               />
             );
           })}
         </div>
         <div className={cx("right-container")}>
           <form action="">
-          <label htmlFor="firstName">Tên:</label>
-          <input type="text" id="firstName" name="hoten" required onChange={handleInputChange}/>
+            <h3 className="title-cart">Thông tin đơn hàng</h3>
+            <label htmlFor="firstName">Họ tên:</label>
+            <input type="text" id="firstName" name="hoten" placeholder="Nhập tên người nhận" required onChange={handleInputChange} />
 
-          <label htmlFor="phone">Số điện thoại:</label>
-          <input type="tel" id="phone" name="sdt" required onChange={handleInputChange}/>
+            <label htmlFor="phone">Số điện thoại:</label>
+            <input type="telephone" id="phone" name="sdt" placeholder="Số điện thoại người nhận" required onChange={handleInputChange} />
 
-          <label htmlFor="address">Địa chỉ:</label>
-          <input type="text" id="address" name="diachi" required onChange={handleInputChange}/>
+            <div className={cx("edit-address-cart")}>
+              <div className={cx("left-div-address")}>
+                <label htmlFor="address">Địa chỉ:</label>
+                <input type="text" id="address" name="diachi" placeholder="Số nhà, tòa nhà, đường..." required onChange={handleInputChange} />
+              </div>
+              <div className={cx("edit-option")}>
+                <label htmlFor="dropdown">Quận:</label>
+                <select id="dropdown">
+                  <option value="option1">Quận 2</option>
+                  <option value="option2">Quận 5</option>
+                  <option value="option3">Quận 8</option>
+                  <option value="option4">Quận 10</option>
+                  <option value="option5">Bình Chánh</option>
+                </select>
+              </div>
+            </div>
 
-          <button type="button" onClick={handleCreateOrder}>
-            Thanh toán
-          </button>
+            <label htmlFor="note">Ghi chú:</label>
+            <input type="text" id="note" name="ghichu" required onChange={handleInputChange} />
+
+            <div className={cx("btn-cart-option")}>
+              <div className={cx("button-cash")}>
+                <button type="button" onClick={handleCreateOrder}>
+                  Thanh toán tiền mặt
+                </button>
+              </div>
+              <div className={cx("button-momo")}>
+                <button type="button">
+                  Online thanh toán
+                </button>
+              </div>
+            </div>
           </form>
         </div>
       </div>

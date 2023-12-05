@@ -37,7 +37,7 @@ function Footer() {
                                     <h3 className={cx("h3-title")}>Địa chỉ</h3>
                                     <ul>
                                         <li><i className={cx("fas fa-map-marker-alt")}></i>  180 Cao Lỗ, quận 8, TP.HCM</li>
-                                        <li><i className={cx("fas fa-phone")}></i>  0346262925</li>
+                                        <li><i className={cx("fas fa-phone")}></i>  0909234567</li>
                                         <li><i className={cx("fas fa-envelope")}></i>  foodat@gmail.com</li>
                                     </ul>
                                 </div>
