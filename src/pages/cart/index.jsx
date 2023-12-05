@@ -12,7 +12,7 @@ const cx = classNames.bind(styles);
 function Cart() {
   const cartList = useSelector(cartListSelectors);
   const navigate = useNavigate();
-  const idUser = localStorage.getItem('id') || 1;
+  const idUser = localStorage.getItem('id') || undefined;
   let detailOrder = cartList.map(item => ({
     id: item.id,
     soluong: item.quantity,
@@ -24,10 +24,15 @@ function Cart() {
   }))
   const totalAmount = detailOrder.reduce((total, item) => {
     // Convert 'tong' to a number and add it to the total
+    
     return total + parseFloat(item.tong);
   }, 0);
 
-  console.log(totalAmount);
+    // Sử dụng totalAmount để cập nhật state order
+    useEffect(() => {
+      setOrder((prevOrder) => ({ ...prevOrder, tongtien: totalAmount }));
+    }, [totalAmount]);
+
   const [order, setOrder] = useState({
     hoten: '',
     diachi: '',
@@ -40,8 +45,9 @@ function Cart() {
     tongtien: totalAmount,
     details: detailOrder,
     ghichu: '',
+    quan:'Quận 2'
   })
-  console.log(order.tongtien);
+  console.log(order);
   useEffect(() => {
     // Optionally, you can update the order details when cartList changes
     setOrder((prevOrder) => ({ ...prevOrder, details: detailOrder }));
@@ -54,6 +60,9 @@ function Cart() {
 
   const handleCreateOrder = async () => {
     try {
+      if(idUser === undefined){
+        navigate("/login")
+      }
       const response = await createOrderApi(order); // Use createOrderApi function
       if (response.success) {
         console.log('Order created successfully');
@@ -89,6 +98,7 @@ function Cart() {
                 quantity1={product.quantity}
                 tongTien={tongTien}
                 ghichu={product.ghichu}
+                image={product.image}
               />
             );
           })}
@@ -109,12 +119,12 @@ function Cart() {
               </div>
               <div className={cx("edit-option")}>
                 <label htmlFor="dropdown">Quận:</label>
-                <select id="dropdown">
-                  <option value="option1">Quận 2</option>
-                  <option value="option2">Quận 5</option>
-                  <option value="option3">Quận 8</option>
-                  <option value="option4">Quận 10</option>
-                  <option value="option5">Bình Chánh</option>
+                <select id="dropdown" name="quan" onChange={handleInputChange}>
+                  <option value="Quận 2">Quận 2</option>
+                  <option value="Quận 5">Quận 5</option>
+                  <option value="Quận 8">Quận 8</option>
+                  <option value="Quận 10">Quận 10</option>
+                  <option value="Bình Chánh">Bình Chánh</option>
                 </select>
               </div>
             </div>

@@ -34,6 +34,8 @@ export const createOrderApi = async ({
   makhachhang,
   tongtien,
   details,
+  ghichu,
+  quan
 }) => {
   try {
     const res = await axios.post(`${BASE_API}/order/create`, {
@@ -47,6 +49,8 @@ export const createOrderApi = async ({
       makhachhang,
       tongtien,
       details,
+      ghichu,
+      quan
     });
     return res.data;
   } catch (error) {

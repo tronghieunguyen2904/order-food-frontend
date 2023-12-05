@@ -10,7 +10,7 @@ import {
 const cx = classNames.bind(styles);
 
 // eslint-disable-next-line react/prop-types
-function ProductCart({ id, ten, gia, quantity1, tongTien }) {
+function ProductCart({ id, ten, gia, quantity1, tongTien ,image}) {
   const dispath = useDispatch();
   const handleDelete = () => {
     dispath(
@@ -57,7 +57,7 @@ function ProductCart({ id, ten, gia, quantity1, tongTien }) {
                 <table class={cx("table table-striped")}>
                   <thead>
                     <tr>
-                      <th scope="col"></th>
+                      <th scope="col">Ảnh</th>
                       <th scope="col">Tên món</th>
                       <th scope="col">Giá</th>
                       <th scope="col">Số Lượng</th>
@@ -67,11 +67,11 @@ function ProductCart({ id, ten, gia, quantity1, tongTien }) {
                   </thead>
                   <tbody>
                     <tr>
-                      <th scope="row">{id}</th>
-                      <td><p>{ten}</p></td>
-                      <td><p>{gia}</p></td>
+                      <th scope="row"><img src={image} alt="" className={cx("image-cart")}/></th>
+                      <td><p className={cx("content-text")}>{ten}</p></td>
+                      <td><p className={cx("content-text")}>{gia}</p></td>
                       <td>
-                        <button onClick={handleDecrease}>
+                        <button onClick={handleDecrease} className={cx("content-text")}>
                           <i className={cx("fas fa-minus")}></i>
                         </button>
                         <span>{quantity1}</span>
@@ -80,10 +80,10 @@ function ProductCart({ id, ten, gia, quantity1, tongTien }) {
                         </button>
                       </td>
 
-                      <td><p>{tongTien}</p></td>
+                      <td><p className={cx("content-text")}>{tongTien}</p></td>
 
-                      <td><span>
-                        <button onClick={handleDelete}>
+                      <td><span >
+                        <button onClick={handleDelete} className={cx("content-text")}>
                           <i class="fas fa-trash-alt"></i>
                         </button></span>
                       </td>

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import styles from "./Menu.module.scss";
 import classNames from "classnames/bind";
 import Product from "./product";
+import images from "../../../assets";
 // import { useDispatch } from "react-redux";
 // import { addCart } from "../../redux/actions/actions";
 
@@ -128,7 +129,8 @@ function Menu() {
                                         mota={data.mota}
                                         tenLoai={data.tenLoaiHang}
                                         gia={data.dongia.toLocaleString()}
-                                    />
+                                        img={images[data.hinhanh]}
+                                        />
                                 )) : dataProductFilter.map((data, index) => (
                                     <Product
                                         key={index}
@@ -137,6 +139,7 @@ function Menu() {
                                         mota={data.mota}
                                         tenLoai={data.tenLoaiHang}
                                         gia={data.dongia.toLocaleString()}
+                                        img={images[data.hinhanh]}
                                     />
                                 ))}
                             </div>

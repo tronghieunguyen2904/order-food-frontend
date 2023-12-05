@@ -2,11 +2,12 @@ import { useDispatch } from "react-redux";
 import styles from "../Menu.module.scss";
 import classNames from "classnames/bind";
 import { addCart } from "../../../redux/actions/actions";
+import images from "../../../../assets";
 const cx = classNames.bind(styles);
 
 
 // eslint-disable-next-line react/prop-types
-function Product({ id, ten, tenLoai, gia, mota }) {
+function Product({ id, ten, tenLoai, gia, mota ,img}) {
   const dispath = useDispatch()
   const handleCart = () => {
     dispath(addCart({
@@ -14,7 +15,8 @@ function Product({ id, ten, tenLoai, gia, mota }) {
       ten: ten,
       mota: mota,
       dongia: gia,
-      quantity: 1
+      quantity: 1,
+      image:img
     }))
   }
   return (
@@ -24,7 +26,7 @@ function Product({ id, ten, tenLoai, gia, mota }) {
     >
       <div className={cx("dish-box", "text-center")}>
         <div className={cx("dist-img")}>
-          <img src="src/assets/menu/2.png" alt='Hinh' />
+          <img src={img} alt='Hinh' />
         </div>
         <div className={cx("dish-rating")}>
           4.3
@@ -53,7 +55,7 @@ function Product({ id, ten, tenLoai, gia, mota }) {
             </li>
             <li>
               <div>
-                <button className={cx("dish-add-btn")} onClick={handleCart}><i class="fa-solid fa-plus"></i></button>
+                <button className={cx("dish-add-btn")} onClick={handleCart}><i className="fa-solid fa-plus"></i></button>
               </div>
             </li>
           </ul>

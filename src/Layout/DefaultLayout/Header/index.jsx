@@ -17,6 +17,7 @@ function Header() {
     const confirmation = window.confirm("Bạn có chắc chắn muốn đăng xuất?");
     if (confirmation) {
       localStorage.removeItem("name");
+      localStorage.removeItem("id");
       navigate('/')
     }
   }
