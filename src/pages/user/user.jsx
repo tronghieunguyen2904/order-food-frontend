@@ -48,12 +48,12 @@ function user() {
                         <div className='left-menu-user'>
                             <section id="option-menu">
                                 <ul className='menu'>
-                                <li className='list-menu'>
-                                    <Link to="/user"><span className='text'>Thông tin tài khoản</span></Link>
-                                </li>
-                                <li>
-                                    <Link to="/user/order"><span className='text'>Quản lý đơn hàng</span></Link>
-                                </li>
+                                    <li className='list-menu'>
+                                        <Link to="/user"><span className='text'>Thông tin tài khoản</span></Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/user/order"><span className='text'>Quản lý đơn hàng</span></Link>
+                                    </li>
                                     <li>
                                         <a href="#"><span className='text'>Danh sách yêu thích</span></a>
                                     </li>

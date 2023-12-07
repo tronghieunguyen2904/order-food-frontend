@@ -10,7 +10,7 @@ import {
 const cx = classNames.bind(styles);
 
 // eslint-disable-next-line react/prop-types
-function ProductCart({ id, ten, gia, quantity1, tongTien ,image}) {
+function ProductCart({ id, ten, gia, quantity1, tongTien, image }) {
   const dispath = useDispatch();
   const handleDelete = () => {
     dispath(
@@ -67,23 +67,23 @@ function ProductCart({ id, ten, gia, quantity1, tongTien ,image}) {
                   </thead>
                   <tbody>
                     <tr>
-                      <th scope="row"><img src={image} alt="" className={cx("image-cart")}/></th>
-                      <td><p className={cx("content-text")}>{ten}</p></td>
-                      <td><p className={cx("content-text")}>{gia}</p></td>
+                      <th scope="row"><img src={image} alt="" className={cx("image-cart")} /></th>
+                      <td><p className={cx("content-dt")}>{ten}</p></td>
+                      <td><p className={cx("content-dt")}>{gia}</p></td>
                       <td>
-                        <button onClick={handleDecrease} className={cx("content-text")}>
+                        <button onClick={handleDecrease} className={cx("content-text")} title="Giảm món">
                           <i className={cx("fas fa-minus")}></i>
                         </button>
                         <span>{quantity1}</span>
-                        <button className={cx("btn-qty-cart")} onClick={handleIncrease}>
+                        <button className={cx("content-text")} onClick={handleIncrease} title="Thêm món">
                           <i className={cx("fas fa-plus")}></i>
                         </button>
                       </td>
 
-                      <td><p className={cx("content-text")}>{tongTien}</p></td>
+                      <td><p className={cx("content-dt")}>{tongTien}</p></td>
 
                       <td><span >
-                        <button onClick={handleDelete} className={cx("content-text")}>
+                        <button onClick={handleDelete} className={cx("content-text")} title="Xóa món">
                           <i class="fas fa-trash-alt"></i>
                         </button></span>
                       </td>

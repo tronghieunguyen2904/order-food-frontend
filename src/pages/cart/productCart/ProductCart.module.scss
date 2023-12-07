@@ -131,6 +131,7 @@
             padding-top: 2px;
             width: 30%;
             padding-left: 15px;
+            cursor: pointer;
 
             label {
                 font-size: 15px;
@@ -201,10 +202,93 @@
         background-color: #45a049;
     }
 }
-.image-cart{
+
+.image-cart {
     width: 60px;
     height: 60px;
 }
-.content-text{
+
+.content-text {
     margin-top: 18px;
+    border: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: rgb(245, 164, 3);
+    // border-radius: 10px;
+    // padding: 5px 10px;
+    // box-shadow: inset 6px 6px 8px #dadada, inset -6px -6px 8px #ffffff;
+
+    &:hover {
+        color: rgb(3, 172, 245);
+        border-radius: 10px;
+        padding: 0px 5px;
+        box-shadow: inset 6px 6px 8px #dadada, inset -6px -6px 8px #ffffff;
+    }
+}
+
+.content-dt {
+    margin-top: 18px;
+    border: none;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+//thanh toan momo
+.tt {
+    background-color: #bff9c1;
+    padding-top: 200px;
+}
+
+//loading
+.loading {
+    margin-top: 60px;
+    height: 500px;
+    background: linear-gradient(135deg, rgb(247, 242, 196)0%, rgb(144, 188, 254)100%);
+    // background-image: url('/src/assets/page/xacnhandonhang.png');
+    // filter: blur(50px);
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .back-ground {
+        align-items: flex-end;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .loader-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h3 {
+        margin-top: 10px;
+    }
+
+    i {
+        font-size: 50px;
+        color: orange;
+    }
+
+    button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        font-size: 20px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.03);
+            background-color: rgb(255, 186, 57);
+        }
+    }
+
+
 }

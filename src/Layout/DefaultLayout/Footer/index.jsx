@@ -23,11 +23,10 @@ function Footer() {
                                     Cảm ơn bạn đã ghé thăm và hẹn gặp lại bạn sắp tới!!</p>
                             </div>
                             <div className={cx("icon-page")}>
-                                <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="https://twitter.com/"><i className={cx("fab fa-twitter")}></i></a></li>
                                 <li><a href="https://www.facebook.com/"><i className={cx("fab fa-facebook")}></i></a></li>
                                 <li><a href="https://www.youtube.com/"><i className={cx("fab fa-youtube")}></i></a></li>
                                 <li><a href="https://www.instagram.com/"><i className={cx("fab fa-instagram")}></i></a></li>
-
                             </div>
                         </div>
 

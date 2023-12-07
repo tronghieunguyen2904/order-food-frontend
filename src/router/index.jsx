@@ -1,6 +1,8 @@
 import admin from "../pages/admin/admin";
 import Cart from "../pages/cart";
-import Detail from "../pages/detail";
+import loading from "../pages/cart/productCart/loading";
+import Thanhtoan from "../pages/cart/productCart/thanhtoan";
+// import Detail from "../pages/detail";
 import HomePage from "../pages/home";
 import Login from "../pages/login";
 import news from "../pages/restaurant/news";
@@ -18,9 +20,11 @@ const routes = [
     { path: '/restaurant', component: restaurant },
     { path: '/news', component: news },
     { path: '/admin', component: admin, Layout: admin },
-    { path: '/detail/:id', component: Detail },
+    // { path: '/detail/:id', component: Detail },
     { path: '/user', component: user },
     { path: '/user/order', component: UserOrder },
+    { path: '/user/order/payment', component: loading },
+    { path: '/user/order/thanhtoan', component: Thanhtoan },
 ]
 
 export { routes };

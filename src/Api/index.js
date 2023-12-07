@@ -64,3 +64,7 @@ export const userOrderApi = async (id) => {
   const res = await axios.get(`${BASE_API}/user/order/${id}`);
   return res.data.data;
 }
+export const thanhtoanMomo = async () => {
+  const res = await axios.post(`${BASE_API}/thanhtoan/momo`);
+  return res.data;
+}

@@ -32,17 +32,23 @@ function UserOrder() {
           <div className='user-body'>
             <div className='left-menu-user'>
               <section id="option-menu">
-                <ul className='menu'>
+
+                <div className="option-menu-user">
                   <li className='list-menu'>
                     <Link to="/user"><span className='text'>Thông tin tài khoản</span></Link>
                   </li>
+                </div>
+                <div className="option-menu-user">
                   <li>
                     <Link to="/user/order"><span className='text'>Quản lý đơn hàng</span></Link>
                   </li>
+                </div>
+                <div className="option-menu-user">
                   <li>
                     <a href="#"><span className='text'>Danh sách yêu thích</span></a>
                   </li>
-                </ul>
+                </div>
+
 
                 <ul class="footer-menu">
                   <li>

@@ -1,19 +1,11 @@
 .container-footer {
-    background-color: rgb(192, 189, 189);
+    background-color: rgb(235, 235, 235);
     //background-color: rgb(255, 195, 83); // Màu nền của footer
     height: 320px;
 
     .second-footer {
-        //padding-top: 40px;
-        //padding-left: 30px;
-
-
         .cover-footer {
-            //margin-top: 30px;
-            //margin-left: 30px;
-            //margin-right: 30px;
-            //margin-bottom: 20px;
-            background-color: rgb(192, 189, 189);
+            background-color: rgb(235, 235, 235);
             display: flex;
 
             .left-footer {
@@ -39,30 +31,36 @@
                     width: 350px;
                     text-align: justify;
                     font-weight: 500;
-                    //justify-content: center;
                 }
 
                 .icon-page {
                     display: flex;
                     list-style: none;
-                    font-weight: 500;
-
-                    //color: black;
-                    &:hover {
-                        color: black; // Phóng to icon khi hover
-                    }
+                    font-weight: 500px;
 
                     li {
+                        display: flex;
                         margin-right: 15px; // Khoảng cách giữa các icon
+                        background-color: white;
+                        border-radius: 50%;
+                        width: 35px;
+                        height: 35px;
+                        align-items: center;
+                        justify-content: space-between;
+                        // box-shadow: inset -6px -6px -8px #232323, inset 6px 6px 8px #8a8a8a;
 
                         a {
-                            padding-left: 5px;
                             color: black; // Màu chữ
                             text-decoration: none; // Loại bỏ gạch chân
-                            font-size: 20px; // Điều chỉnh kích thước font nếu cần
+                            font-size: 20px;
+
+                            i {
+                                padding-left: 8px;
+                                align-items: center;
+                            }
 
                             &:hover {
-                                color: white; // Phóng to icon khi hover
+                                color: orange;
                             }
                         }
                     }

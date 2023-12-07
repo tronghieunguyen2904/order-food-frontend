@@ -5,7 +5,8 @@ import ProductCart from "./productCart";
 import styles from "../cart/productCart/ProductCart.module.scss";
 import classNames from "classnames/bind";
 import { useEffect, useState } from "react";
-import { createOrderApi } from "../../Api";
+import { createOrderApi, thanhtoanMomo } from "../../Api";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 const cx = classNames.bind(styles);
 
@@ -24,14 +25,14 @@ function Cart() {
   }))
   const totalAmount = detailOrder.reduce((total, item) => {
     // Convert 'tong' to a number and add it to the total
-    
+
     return total + parseFloat(item.tong);
   }, 0);
 
-    // Sử dụng totalAmount để cập nhật state order
-    useEffect(() => {
-      setOrder((prevOrder) => ({ ...prevOrder, tongtien: totalAmount }));
-    }, [totalAmount]);
+  // Sử dụng totalAmount để cập nhật state order
+  useEffect(() => {
+    setOrder((prevOrder) => ({ ...prevOrder, tongtien: totalAmount }));
+  }, [totalAmount]);
 
   const [order, setOrder] = useState({
     hoten: '',
@@ -45,7 +46,7 @@ function Cart() {
     tongtien: totalAmount,
     details: detailOrder,
     ghichu: '',
-    quan:'Quận 2'
+    quan: 'Quận 2'
   })
   console.log(order);
   useEffect(() => {
@@ -60,15 +61,16 @@ function Cart() {
 
   const handleCreateOrder = async () => {
     try {
-      if(idUser === undefined){
+      if (idUser === undefined) {
         navigate("/login")
       }
       const response = await createOrderApi(order); // Use createOrderApi function
-      if (response.success) {
+      const isConfirmed = window.confirm("Bạn chắn chắc muốn đặt món này?");
+      if (isConfirmed && response.success) {
         console.log('Order created successfully');
         console.log('Order ID:', response.id);
         localStorage.removeItem('persist:root')
-        navigate("/")
+        navigate("/user/order/payment")
         // Optionally, clear the cart or perform other actions
       } else {
         console.error('Failed to create order:', response.message);
@@ -77,6 +79,15 @@ function Cart() {
       console.error('Error creating order:', error.message);
     }
   };
+
+  const handleMomo = () => {
+    axios.post("http://localhost:3001/api/thanhtoan/momo", {}).then(res => {
+      if (res) {
+        console.log(res);
+      }
+    })
+  };
+
   return (
     <>
       <div className={cx("cart-container")}>
@@ -86,9 +97,7 @@ function Cart() {
               product.dongia && typeof product.dongia === "string"
                 ? parseFloat(product.dongia.replace(",", ""))
                 : 0;
-
             const tongTien = dongia * product.quantity;
-
             return (
               <ProductCart
                 key={index}
@@ -102,6 +111,7 @@ function Cart() {
               />
             );
           })}
+
         </div>
 
         <div className={cx("right-container")}>
@@ -140,7 +150,7 @@ function Cart() {
                 </button>
               </div>
               <div className={cx("button-momo")}>
-                <button type="button">
+                <button onClick={handleMomo}>
                   Online thanh toán
                 </button>
               </div>
