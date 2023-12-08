@@ -153,8 +153,9 @@
                                 }
 
                                 .edit-gender {
+                                    display: flex;
                                     padding-top: 23px;
-                                    width: 30%;
+                                    width: 180px;
                                     height: 25px;
                                     padding-left: 15px;
                                     cursor: pointer;
@@ -165,12 +166,32 @@
                                     }
 
                                     select {
-                                        padding: 5px 20px 5px 10px;
+                                        border: 1px solid rgb(237, 237, 237);
+                                        height: 35px;
+                                        padding: 5px 25px 5px 15px;
                                         font-size: 15px;
                                     }
 
                                     select option {
                                         font-size: 15px;
+                                    }
+                                }
+
+                                .input-info-button {
+                                    margin-top: 22px;
+                                    border-radius: 15px;
+                                    width: 80px;
+                                    height: 35px;
+                                    background-color: #46d6a1;
+                                    cursor: pointer;
+
+                                    .btn-save-info {
+                                        padding-left: 25px;
+                                        padding-top: 5px;
+                                    }
+
+                                    &:hover {
+                                        background-color: rgb(240, 162, 16);
                                     }
                                 }
                             }

@@ -125,6 +125,9 @@ function user() {
                                                 <option value="Khác">Khác</option>
                                             </select>
                                         </div>
+                                        <div className='input-info-button'>
+                                            <div className='btn-save-info'><p>Lưu</p></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
