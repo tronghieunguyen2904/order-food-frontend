@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { userOrderApi } from "../../Api";
+import { userOrderApi } from "../../../Api";
 import { Link } from "react-router-dom";
 
-function UserOrder() {
+function userOrder() {
   const name = localStorage.getItem("name");
   const [orders, setOrders] = useState([]);
 
@@ -93,4 +93,4 @@ function UserOrder() {
   );
 }
 
-export default UserOrder;
+export default userOrder;

@@ -9,7 +9,8 @@ import news from "../pages/restaurant/news";
 import restaurant from "../pages/restaurant/restaurant";
 import Signup from "../pages/signup/signup";
 import user from "../pages/user/user";
-import UserOrder from "../pages/user/userOrder";
+import userOrder from "../pages/user/section/userOrder";
+import userInfo from "../pages/user/section/userInfo";
 
 
 const routes = [
@@ -22,7 +23,8 @@ const routes = [
     { path: '/admin', component: admin, Layout: admin },
     // { path: '/detail/:id', component: Detail },
     { path: '/user', component: user },
-    { path: '/user/order', component: UserOrder },
+    { path: '/user/info', component: userInfo },
+    { path: '/user/order', component: userOrder },
     { path: '/user/order/payment', component: loading },
     { path: '/user/order/thanhtoan', component: Thanhtoan },
 ]
