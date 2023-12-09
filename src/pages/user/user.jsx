@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './user.scss';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
-function user() {
+import { loginApi, updateUserApi } from '../../Api';
+function User() {
     //const history = useHistory();
+    
     const handleLogout = () => {
         const confirmation = window.confirm("Bạn có chắc chắn muốn đăng xuất?");
         if (confirmation) {
@@ -16,7 +17,59 @@ function user() {
             history.push('/');
         }
     }
+    const [userInfo, setUserInfo] = useState({
+        id: '',
+        ten: localStorage.getItem('name'),
+        tendem:  localStorage.getItem('tendem'),
+        gmail:  localStorage.getItem('gmail'),
+        diachi:  localStorage.getItem('diachi'),
+        sdt:  localStorage.getItem('sdt'),
+        gioitinh:  localStorage.getItem('gioitinh')
+      });
 
+      // Hàm này sẽ chạy khi component được tạo ra
+      useEffect(() => {
+          // Lấy thông tin từ localStorage
+          const ten = localStorage.getItem('name');
+          const tendem = localStorage.getItem('tendem');
+          const gmail = localStorage.getItem('gmail');
+          const diachi = localStorage.getItem('diachi');
+          const sdt = localStorage.getItem('sdt');
+          const gioitinh = localStorage.getItem('gioitinh');
+          const id = localStorage.getItem('id');
+    
+        // Cập nhật state object
+        setUserInfo({
+          id: id || "", 
+          ten: ten || "",
+          tendem: tendem || "",
+          gmail: gmail || "",
+          diachi: diachi || "",
+          sdt: sdt || "",
+          gioitinh: gioitinh || ""
+        });
+      }, []);
+
+      useEffect(() => {
+            // Cập nhật localStorage khi userInfo thay đổi
+            localStorage.setItem("name", userInfo.ten);
+            localStorage.setItem("tendem", userInfo.tendem);
+            localStorage.setItem("gmail", userInfo.gmail);
+            localStorage.setItem("sdt", userInfo.sdt);
+            localStorage.setItem("diachi", userInfo.diachi);
+            localStorage.setItem("gioitinh", userInfo.gioitinh);
+
+        
+    }, [userInfo]);
+
+      const handleUpdateProfile = async () => {
+        try {
+            await updateUserApi(userInfo);
+            console.log('Thông tin người dùng đã được cập nhật thành công');
+        } catch (error) {
+            console.error('Lỗi khi cập nhật thông tin người dùng:', error.message);
+        }
+    };
     return (
         <div className='user-container'>
             <div className='user-background'>
@@ -82,22 +135,22 @@ function user() {
                                         <div className='input-info'>
                                             <label>Email:</label>
                                             <input className='form-control' type='gmail' readOnly
-                                            //value={customerData.ten}
-                                            // onChange={(event) => { this.onChangeInput(event, 'firstName') }}
+                                            value={userInfo.gmail !== "null" ? userInfo.gmail : "Chưa có thông tin"}
+                                            onChange={(event) => setUserInfo({ ...userInfo, gmail: event.target.value })}
                                             />
                                         </div>
                                         <div className='input-info'>
                                             <label>Tên:</label>
                                             <input className='form-control' type='text'
-                                            //value={customerData.ten}
-                                            // onChange={(event) => { this.onChangeInput(event, 'firstName') }}
+                                            value={userInfo.ten !== "null" ? userInfo.ten : "Chưa có thông tin"}
+                                            onChange={(event) => setUserInfo({ ...userInfo, ten: event.target.value })}
                                             />
                                         </div>
                                         <div className='input-info'>
                                             <label>Tên đệm:</label>
                                             <input className='form-control' type='text'
-                                            //value={customerData.tendem}
-                                            // onChange={(event) => { this.onChangeInput(event, 'lastName') }}
+                                            value={userInfo.tendem !== "null" ? userInfo.tendem : "Chưa có thông tin"}
+                                            onChange={(event) => setUserInfo({ ...userInfo, tendem: event.target.value })}
                                             />
                                         </div>
                                     </div>
@@ -106,27 +159,27 @@ function user() {
                                         <div className='input-info'>
                                             <label>Số điện thoại:</label>
                                             <input className='form-control' type='text'
-                                            // value={phoneNumber}
-                                            // onChange={(event) => { this.onChangeInput(event, 'phoneNumber') }}
+                                             value={userInfo.sdt !== "null" ? userInfo.sdt : "Chưa có thông tin"}
+                                             onChange={(event) => setUserInfo({ ...userInfo, sdt: event.target.value })}
                                             />
                                         </div>
                                         <div className='input-info'>
                                             <label>Địa chỉ:</label>
                                             <input className='form-control' type='text'
-                                            // value={address}
-                                            // onChange={(event) => { this.onChangeInput(event, 'address') }}
+                                             value={userInfo.diachi !== "null" ? userInfo.diachi : "Chưa có thông tin"}
+                                             onChange={(event) => setUserInfo({ ...userInfo, diachi: event.target.value })}
                                             />
                                         </div>
                                         <div className='edit-gender'>
                                             <label>Giới tính: </label>
-                                            <select name="gioitinh">
-                                                <option value="nam">Nam</option>
-                                                <option value="Nu">Nữ</option>
+                                            <select name="gioitinh" value={userInfo.gioitinh} onChange={(event) => setUserInfo({ ...userInfo, gioitinh: event.target.value })}>
+                                                <option value="Nam">Nam</option>
+                                                <option value="Nữ">Nữ</option>
                                                 <option value="Khác">Khác</option>
                                             </select>
                                         </div>
                                         <div className='input-info-button'>
-                                            <div className='btn-save-info'><p>Lưu</p></div>
+                                            <div className='btn-save-info'><button onClick={handleUpdateProfile}>Lưu</button></div>
                                         </div>
                                     </div>
                                 </div>
@@ -140,4 +193,4 @@ function user() {
     );
 }
 
-export default user;
+export default User;

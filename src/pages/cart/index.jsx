@@ -50,7 +50,6 @@ function Cart() {
     ghichu: "",
     quan: "Quận 2",
   });
-  
 
   console.log(order);
 
@@ -98,7 +97,7 @@ function Cart() {
           const quan = localStorage.getItem("quan");
           const tongtien = localStorage.getItem("tongtien");
           const details = localStorage.getItem("details");
-  
+
           setOrder((prevOrder) => ({
             ...prevOrder,
             hoten: hoten || prevOrder.hoten,
@@ -110,7 +109,7 @@ function Cart() {
             details: details || prevOrder.details,
             mathanhtoan: 2,
           }));
-  
+
           localStorage.removeItem("hoten");
           localStorage.removeItem("diachi");
           localStorage.removeItem("sdt");
@@ -118,19 +117,18 @@ function Cart() {
           localStorage.removeItem("quan");
           localStorage.removeItem("tongtien");
           localStorage.removeItem("details");
-  
         } catch (error) {
           console.log(error);
         }
       }
     };
-  
+
     fetchData();
-  
+
     // Check if the order has all the required data before calling handleCreateOrder
   }, [partnerCode]);
 
-  useEffect(()=>{
+  useEffect(() => {
     if (
       order.hoten &&
       order.diachi &&
@@ -144,7 +142,7 @@ function Cart() {
       console.log(order.details);
       handleCreateOrder();
     }
-  },[order.details])
+  }, [order.details]);
   const handleMomo = async (event) => {
     try {
       event.preventDefault();
@@ -175,29 +173,55 @@ function Cart() {
     }
   };
 
+  const tongtien = cartList.reduce((total, product) => {
+    const dongia =
+      product.dongia && typeof product.dongia === "string"
+        ? parseFloat(product.dongia.replace(",", ""))
+        : 0;
+    return total + dongia * product.quantity;
+  }, 0);
+
   return (
     <>
       <div className={cx("cart-container")}>
         <div className={cx("left-container")}>
-          {cartList.map((product, index) => {
-            const dongia =
-              product.dongia && typeof product.dongia === "string"
-                ? parseFloat(product.dongia.replace(",", ""))
-                : 0;
-            const tongTien = dongia * product.quantity;
-            return (
-              <ProductCart
-                key={index}
-                id={product.id}
-                ten={product.ten}
-                gia={dongia}
-                quantity1={product.quantity}
-                tongTien={tongTien}
-                ghichu={product.ghichu}
-                image={product.image}
-              />
-            );
-          })}
+          <div className={cx("title-left-sp")}>
+            <h4>Chi tiết giỏ hàng</h4>
+            <span>Tổng tiền: {tongtien}vnd</span>
+          </div>
+          <table className={cx("table table-striped")}>
+            <thead>
+              <tr>
+                <th scope="col">Ảnh</th>
+                <th scope="col">Tên món</th>
+                <th scope="col">Giá</th>
+                <th scope="col">Số Lượng</th>
+                <th scope="col">Thành tiền</th>
+                <th scope="col">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cartList.map((product, index) => {
+                const dongia =
+                  product.dongia && typeof product.dongia === "string"
+                    ? parseFloat(product.dongia.replace(",", ""))
+                    : 0;
+                const tongTien = dongia * product.quantity;
+                return (
+                  <ProductCart
+                    key={index}
+                    id={product.id}
+                    ten={product.ten}
+                    gia={dongia}
+                    quantity1={product.quantity}
+                    tongTien={tongTien}
+                    ghichu={product.ghichu}
+                    image={product.image}
+                  />
+                );
+              })}
+            </tbody>
+          </table>
         </div>
 
         <div className={cx("right-container")}>
