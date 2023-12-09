@@ -68,3 +68,13 @@ export const thanhtoanMomo = async () => {
   const res = await axios.post(`${BASE_API}/thanhtoan/momo`);
   return res.data;
 }
+
+export const updateUserApi = async (updatedData) => {
+  try {
+    const res = await axios.put(`${BASE_API}/user/update`, updatedData);
+    return res.data;
+  } catch (error) {
+    console.error('Error updating user:', error.message);
+    throw error;
+  }
+};

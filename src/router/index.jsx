@@ -8,7 +8,7 @@ import Login from "../pages/login";
 import news from "../pages/restaurant/news";
 import restaurant from "../pages/restaurant/restaurant";
 import Signup from "../pages/signup/signup";
-import user from "../pages/user/user";
+import User from "../pages/user/user";
 import userOrder from "../pages/user/section/userOrder";
 
 
@@ -21,7 +21,7 @@ const routes = [
     { path: '/news', component: news },
     { path: '/admin', component: admin, Layout: admin },
     // { path: '/detail/:id', component: Detail },
-    { path: '/user', component: user },
+    { path: '/user', component: User },
     { path: '/user/order', component: userOrder },
     { path: '/user/order/payment', component: loading },
     { path: '/user/order/thanhtoan', component: Thanhtoan },
