@@ -5,6 +5,17 @@ import { Link } from "react-router-dom";
 function userOrder() {
   const name = localStorage.getItem("name");
   const [orders, setOrders] = useState([]);
+  const handleLogout = () => {
+    const confirmation = window.confirm("Bạn có chắc chắn muốn đăng xuất?");
+    if (confirmation) {
+      // Xóa thông tin người dùng từ localStorage
+      localStorage.removeItem("name");
+      localStorage.removeItem("id");
+
+      // Chuyển hướng về trang chủ
+      history.push('/');
+    }
+  }
 
   useEffect(() => {
     // Make the API call to get user orders data
@@ -27,39 +38,35 @@ function userOrder() {
       <div className='user-background'>
         <div className='user-type'>
           <div className='user-header'>
-            <h5>Xin chào!! {name}</h5>
+            <h5>Quản lý khách hàng</h5>
           </div>
           <div className='user-body'>
             <div className='left-menu-user'>
               <section id="option-menu">
-
-                <div className="option-menu-user">
-                  <li className='list-menu'>
-                    <Link to="/user"><span className='text'>Thông tin tài khoản</span></Link>
-                  </li>
+                <div className='menu'>
+                  <i class="fas fa-user-circle"></i>
+                  <Link to="/user"><span className='text'>   Thông tin tài khoản</span></Link>
                 </div>
-                <div className="option-menu-user">
-                  <li>
-                    <Link to="/user/order"><span className='text'>Quản lý đơn hàng</span></Link>
-                  </li>
+                <div className='menu'>
+                  <i class="fas fa-chart-bar"></i>
+                  <Link to="/user/order"><span className='text'>   Quản lý đơn hàng</span></Link>
                 </div>
-                <div className="option-menu-user">
-                  <li>
-                    <a href="#"><span className='text'>Danh sách yêu thích</span></a>
-                  </li>
+                <div className='menu'>
+                  <i class="far fa-list-alt"></i>
+                  <a href="#"><span className='text'>   Danh sách yêu thích</span></a>
                 </div>
 
-
-                <ul class="footer-menu">
-                  <li>
-                    <a href="#"><span className='text'>Cài đặt</span></a>
-                  </li>
-                  <li>
-                    <a href="#" class="logout"><span className='text'>Đăng xuất</span></a>
-                  </li>
-                </ul>
+                <div class="footer-menu-user">
+                  <div className='menu'>
+                    <div className='horver-menu-footer'>
+                      <div onClick={handleLogout}><p>Đăng xuất</p></div>
+                    </div>
+                  </div>
+                </div>
               </section>
             </div>
+
+
             <div className='user-function'>
               <div>
                 <table id="customers" className="table-order">
