@@ -70,21 +70,6 @@ function Menu() {
             });
     }, [dataFilter]);
 
-    ///
-    //   const dispath = useDispatch()
-    //   const handleCart = ()=>{
-    //       dispath(addCart({
-    //           id_product:id,
-    //           img:image,
-    //           name:name,
-    //           color:'#e4bc87',
-    //           size:'small',
-    //           price:price,
-    //           quantity:1
-    //       }))
-    //   }
-
-
     return (
         <>
             <section
@@ -130,7 +115,7 @@ function Menu() {
                                         tenLoai={data.tenLoaiHang}
                                         gia={data.dongia.toLocaleString()}
                                         img={images[data.hinhanh]}
-                                        />
+                                    />
                                 )) : dataProductFilter.map((data, index) => (
                                     <Product
                                         key={index}

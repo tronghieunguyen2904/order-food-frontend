@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './user.scss';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { loginApi, updateUserApi } from '../../Api';
+import { updateUserApi } from '../../Api';
 function User() {
     //const history = useHistory();
-    
     const handleLogout = () => {
         const confirmation = window.confirm("Bạn có chắc chắn muốn đăng xuất?");
         if (confirmation) {
@@ -20,54 +18,55 @@ function User() {
     const [userInfo, setUserInfo] = useState({
         id: '',
         ten: localStorage.getItem('name'),
-        tendem:  localStorage.getItem('tendem'),
-        gmail:  localStorage.getItem('gmail'),
-        diachi:  localStorage.getItem('diachi'),
-        sdt:  localStorage.getItem('sdt'),
-        gioitinh:  localStorage.getItem('gioitinh')
-      });
+        tendem: localStorage.getItem('tendem'),
+        gmail: localStorage.getItem('gmail'),
+        diachi: localStorage.getItem('diachi'),
+        sdt: localStorage.getItem('sdt'),
+        gioitinh: localStorage.getItem('gioitinh')
+    });
 
-      // Hàm này sẽ chạy khi component được tạo ra
-      useEffect(() => {
-          // Lấy thông tin từ localStorage
-          const ten = localStorage.getItem('name');
-          const tendem = localStorage.getItem('tendem');
-          const gmail = localStorage.getItem('gmail');
-          const diachi = localStorage.getItem('diachi');
-          const sdt = localStorage.getItem('sdt');
-          const gioitinh = localStorage.getItem('gioitinh');
-          const id = localStorage.getItem('id');
-    
+    // Hàm này sẽ chạy khi component được tạo ra
+    useEffect(() => {
+        // Lấy thông tin từ localStorage
+        const ten = localStorage.getItem('name');
+        const tendem = localStorage.getItem('tendem');
+        const gmail = localStorage.getItem('gmail');
+        const diachi = localStorage.getItem('diachi');
+        const sdt = localStorage.getItem('sdt');
+        const gioitinh = localStorage.getItem('gioitinh');
+        const id = localStorage.getItem('id');
+
         // Cập nhật state object
         setUserInfo({
-          id: id || "", 
-          ten: ten || "",
-          tendem: tendem || "",
-          gmail: gmail || "",
-          diachi: diachi || "",
-          sdt: sdt || "",
-          gioitinh: gioitinh || ""
+            id: id || "",
+            ten: ten || "",
+            tendem: tendem || "",
+            gmail: gmail || "",
+            diachi: diachi || "",
+            sdt: sdt || "",
+            gioitinh: gioitinh || ""
         });
-      }, []);
+    }, []);
 
-      useEffect(() => {
-            // Cập nhật localStorage khi userInfo thay đổi
-            localStorage.setItem("name", userInfo.ten);
-            localStorage.setItem("tendem", userInfo.tendem);
-            localStorage.setItem("gmail", userInfo.gmail);
-            localStorage.setItem("sdt", userInfo.sdt);
-            localStorage.setItem("diachi", userInfo.diachi);
-            localStorage.setItem("gioitinh", userInfo.gioitinh);
+    useEffect(() => {
+        // Cập nhật localStorage khi userInfo thay đổi
+        localStorage.setItem("name", userInfo.ten);
+        localStorage.setItem("tendem", userInfo.tendem);
+        //localStorage.setItem("gmail", userInfo.gmail);
+        localStorage.setItem("sdt", userInfo.sdt);
+        localStorage.setItem("diachi", userInfo.diachi);
+        localStorage.setItem("gioitinh", userInfo.gioitinh);
 
-        
+
     }, [userInfo]);
 
-      const handleUpdateProfile = async () => {
+    const handleUpdateProfile = async () => {
         try {
             await updateUserApi(userInfo);
-            console.log('Thông tin người dùng đã được cập nhật thành công');
+            alert('Thông tin người dùng đã được cập nhật thành công');
         } catch (error) {
             console.error('Lỗi khi cập nhật thông tin người dùng:', error.message);
+            alert('Đã xảy ra lỗi khi cập nhật thông tin người dùng');
         }
     };
     return (
@@ -135,22 +134,22 @@ function User() {
                                         <div className='input-info'>
                                             <label>Email:</label>
                                             <input className='form-control' type='gmail' readOnly
-                                            value={userInfo.gmail !== "null" ? userInfo.gmail : "Chưa có thông tin"}
-                                            onChange={(event) => setUserInfo({ ...userInfo, gmail: event.target.value })}
+                                                value={userInfo.gmail !== "null" ? userInfo.gmail : "Chưa có thông tin"}
+                                                onChange={(event) => setUserInfo({ ...userInfo, gmail: event.target.value })}
                                             />
                                         </div>
                                         <div className='input-info'>
                                             <label>Tên:</label>
                                             <input className='form-control' type='text'
-                                            value={userInfo.ten !== "null" ? userInfo.ten : "Chưa có thông tin"}
-                                            onChange={(event) => setUserInfo({ ...userInfo, ten: event.target.value })}
+                                                value={userInfo.ten !== "null" ? userInfo.ten : "Chưa có thông tin"}
+                                                onChange={(event) => setUserInfo({ ...userInfo, ten: event.target.value })}
                                             />
                                         </div>
                                         <div className='input-info'>
                                             <label>Tên đệm:</label>
                                             <input className='form-control' type='text'
-                                            value={userInfo.tendem !== "null" ? userInfo.tendem : "Chưa có thông tin"}
-                                            onChange={(event) => setUserInfo({ ...userInfo, tendem: event.target.value })}
+                                                value={userInfo.tendem !== "null" ? userInfo.tendem : "Chưa có thông tin"}
+                                                onChange={(event) => setUserInfo({ ...userInfo, tendem: event.target.value })}
                                             />
                                         </div>
                                     </div>
@@ -159,15 +158,15 @@ function User() {
                                         <div className='input-info'>
                                             <label>Số điện thoại:</label>
                                             <input className='form-control' type='text'
-                                             value={userInfo.sdt !== "null" ? userInfo.sdt : "Chưa có thông tin"}
-                                             onChange={(event) => setUserInfo({ ...userInfo, sdt: event.target.value })}
+                                                value={userInfo.sdt !== "null" ? userInfo.sdt : "Chưa có thông tin"}
+                                                onChange={(event) => setUserInfo({ ...userInfo, sdt: event.target.value })}
                                             />
                                         </div>
                                         <div className='input-info'>
                                             <label>Địa chỉ:</label>
                                             <input className='form-control' type='text'
-                                             value={userInfo.diachi !== "null" ? userInfo.diachi : "Chưa có thông tin"}
-                                             onChange={(event) => setUserInfo({ ...userInfo, diachi: event.target.value })}
+                                                value={userInfo.diachi !== "null" ? userInfo.diachi : "Chưa có thông tin"}
+                                                onChange={(event) => setUserInfo({ ...userInfo, diachi: event.target.value })}
                                             />
                                         </div>
                                         <div className='edit-gender'>
@@ -179,7 +178,7 @@ function User() {
                                             </select>
                                         </div>
                                         <div className='input-info-button'>
-                                            <div className='btn-save-info'><button onClick={handleUpdateProfile}>Lưu</button></div>
+                                            <button className='btn-save-info' onClick={handleUpdateProfile}>Lưu</button>
                                         </div>
                                     </div>
                                 </div>

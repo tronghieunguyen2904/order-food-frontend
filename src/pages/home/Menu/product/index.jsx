@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 
 
 // eslint-disable-next-line react/prop-types
-function Product({ id, ten, tenLoai, gia, mota ,img}) {
+function Product({ id, ten, tenLoai, gia, mota, img }) {
   const dispath = useDispatch()
   const handleCart = () => {
     dispath(addCart({
@@ -16,14 +16,13 @@ function Product({ id, ten, tenLoai, gia, mota ,img}) {
       mota: mota,
       dongia: gia,
       quantity: 1,
-      image:img
+      image: img
     }))
   }
   return (
     <div
       className={cx("col-lg-4", " col-sm-6", "dish-box-wp", "breakfast")}
-      data-cat="breakfast"
-    >
+      data-cat="breakfast">
       <div className={cx("dish-box", "text-center")}>
         <div className={cx("dist-img")}>
           <img src={img} alt='Hinh' />
@@ -33,7 +32,7 @@ function Product({ id, ten, tenLoai, gia, mota ,img}) {
           <i className={cx("uil", "uil-star")}></i>
         </div>
         <div className={cx("dish-title")}>
-          <h3 className={cx("h3-title")}>{ten}</h3>
+          <h3 className={cx("h3-title")}>{ten}<i class="far fa-bookmark" title="Thêm vào yêu thích"></i></h3>
           {/* <p>80 calories</p> */}
         </div>
         <div className={cx("dish-info")}>
